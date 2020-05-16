@@ -1,0 +1,472 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>LSO.ac</path>
+
+<!-- SYSTEM PANEL -->
+
+	<animation>
+		<type>material</type>
+		<object-name>1</object-name>
+		<object-name>2</object-name>
+		<object-name>3</object-name>
+		<object-name>4</object-name>
+		<object-name>5</object-name>
+		<object-name>6</object-name>
+		<object-name>7</object-name>
+		<object-name>8</object-name>
+		<object-name>9</object-name>
+		<object-name>10</object-name>
+		<object-name>11</object-name>
+		<object-name>12</object-name>
+		<object-name>13</object-name>
+		<object-name>G1</object-name>
+		<object-name>G2</object-name>
+		<object-name>G3</object-name>
+		<emission>
+			<red>  0.7 </red>
+			<green>0.7 </green>
+			<blue> 0.7 </blue>
+			<!-- <factor-prop>     </factor-prop> -->
+		</emission>
+  	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>G1</object-name>
+		<condition>
+		  <property>surface-positions/elevator[1]/position-norm</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>G2</object-name>
+		<condition>
+		  <property>/controls/akizuki/crew</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>G3</object-name>
+		<condition>
+		  <property>controls/lighting/deck-lights</property>
+		</condition>
+	</animation>
+
+
+	<animation>
+		<type>select</type>
+		<object-name>1</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>surface-positions/elevator[0]/position-norm</property>
+					<value>0.01</value>
+				</greater-than>
+				<less-than>
+					<property>surface-positions/elevator[0]/position-norm</property>
+					<value>0.99</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>2</object-name>
+		<condition>
+			<equals>
+				<property>surface-positions/elevator[0]/position-norm</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>3</object-name>
+		<condition>
+			<property></property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>4</object-name>
+		<condition>
+			<property></property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>5</object-name>
+		<condition>
+			<equals>
+				<property>surface-positions/elevator[1]/position-norm</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+<!--
+	<animation>
+		<type>select</type>
+		<object-name>6</object-name>
+		<condition>
+			<greater-than>
+				<property>surface-positions/elevator[0]/position-norm</property>
+				<value>0.01</value>
+			</greater-than>
+		</condition>
+	</animation>
+-->
+	<animation>
+		<type>select</type>
+		<object-name>7</object-name>
+		<condition>
+			<property>/controls/akizuki/turn-to-launch-hdg</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>8</object-name>
+		<condition>
+			<property>/controls/akizuki/turn-to-recovery-hdg</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>9</object-name>
+		<condition>
+			<property>/controls/akizuki/turn-to-base-course</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>10</object-name>
+		<condition>
+			<not>
+			<property>controls/mp-control</property>
+			</not>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>11</object-name>
+		<condition>
+			<property>controls/mp-control</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>12</object-name>
+		<condition>
+			<property></property>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>13</object-name>
+		<condition>
+			<property></property>
+		</condition>
+	</animation>
+
+<!-- VELOCITY PANEL -->
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M1</object-name>
+		<property>orientation/true-heading-deg</property>
+                <interpolation>
+			<entry><ind>   0 </ind><dep>   0 </dep></entry>
+                 	<entry><ind> 360 </ind><dep> 360 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>74.920</x1-m>
+			<y1-m>6.662</y1-m>
+			<z1-m>5.157</z1-m>
+			<x2-m>74.934</x2-m>
+			<y2-m>6.713</y2-m>
+			<z2-m>5.076</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M1_TGT</object-name>
+		<property>controls/tgt-heading-degs</property>
+                <interpolation>
+			<entry><ind>   0 </ind><dep>   0 </dep></entry>
+                 	<entry><ind> 360 </ind><dep> 360 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>74.920</x1-m>
+			<y1-m>6.662</y1-m>
+			<z1-m>5.157</z1-m>
+			<x2-m>74.934</x2-m>
+			<y2-m>6.713</y2-m>
+			<z2-m>5.076</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M2</object-name>
+		<property>environment/surface-wind-from-true-degs</property>
+                <interpolation>
+                	<entry><ind> 0</ind><dep> 0 </dep></entry>
+                	<entry><ind> 360 </ind><dep> 360 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.083</x1-m>
+			<y1-m>6.614</y1-m>
+			<z1-m>5.157</z1-m>
+			<x2-m>75.097</x2-m>
+			<y2-m>6.665</y2-m>
+			<z2-m>5.076</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M3</object-name>
+		<property>environment/rel-wind-from-carrier-hdg-degs</property>
+                <interpolation>
+                	<entry><ind>-180 </ind><dep>-180 </dep></entry>
+                	<entry><ind> 0	  </ind><dep>   0 </dep></entry>
+                	<entry><ind> 180 </ind><dep> 180 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.244</x1-m>
+			<y1-m>6.566</y1-m>
+			<z1-m>5.157</z1-m>
+			<x2-m>75.258</x2-m>
+			<y2-m>6.617</y2-m>
+			<z2-m>5.076</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M4</object-name>
+		<property>orientation/roll-deg</property>
+                <interpolation>
+                 <entry><ind> -25 </ind><dep> 123 </dep></entry>
+                 <entry><ind>   0 </ind><dep>   0  </dep></entry>
+                 <entry><ind>  25 </ind><dep>-123 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.407</x1-m>
+			<y1-m>6.518</y1-m>
+			<z1-m>5.157</z1-m>
+			<x2-m>75.421</x2-m>
+			<y2-m>6.569</y2-m>
+			<z2-m>5.076</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M5</object-name>
+		<property>velocities/speed-kts</property>
+                <interpolation>
+                 <entry><ind> 0</ind><dep> 0 </dep></entry>
+                 <entry><ind> 10 </ind><dep> 110 </dep></entry>
+                 <entry><ind> 20 </ind><dep> 211 </dep></entry>
+                 <entry><ind> 34 </ind><dep> 350 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>74.878</x1-m>
+			<y1-m>6.523</y1-m>
+			<z1-m>5.062</z1-m>
+			<x2-m>74.892</x2-m>
+			<y2-m>6.574</y2-m>
+			<z2-m>4.981</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M5_TGT</object-name>
+		<property>controls/tgt-speed-kts</property>
+                <interpolation>
+                 <entry><ind> 0</ind><dep> 0 </dep></entry>
+                 <entry><ind> 10 </ind><dep> 110 </dep></entry>
+                 <entry><ind> 20 </ind><dep> 211 </dep></entry>
+                 <entry><ind> 34 </ind><dep> 350 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>74.878</x1-m>
+			<y1-m>6.523</y1-m>
+			<z1-m>5.062</z1-m>
+			<x2-m>74.892</x2-m>
+			<y2-m>6.574</y2-m>
+			<z2-m>4.981</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M6</object-name>
+		<property>environment/surface-wind-speed-true-kts</property>
+                <interpolation>
+                 <entry><ind> 0</ind><dep> 0 </dep></entry>
+                 <entry><ind> 10 </ind><dep> 110 </dep></entry>
+                 <entry><ind> 20 </ind><dep> 211 </dep></entry>
+                 <entry><ind> 34 </ind><dep> 350 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.041</x1-m>
+			<y1-m>6.472</y1-m>
+			<z1-m>5.059</z1-m>
+			<x2-m>75.055</x2-m>
+			<y2-m>6.523</y2-m>
+			<z2-m>4.978</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M7</object-name>
+		<property>environment/rel-wind-speed-kts</property>
+                <interpolation>
+                 <entry><ind> 0</ind><dep> 0 </dep></entry>
+                 <entry><ind> 10 </ind><dep> 110 </dep></entry>
+                 <entry><ind> 20 </ind><dep> 211 </dep></entry>
+                 <entry><ind> 34 </ind><dep> 350 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.204</x1-m>
+			<y1-m>6.424</y1-m>
+			<z1-m>5.059</z1-m>
+			<x2-m>75.217</x2-m>
+			<y2-m>6.475</y2-m>
+			<z2-m>4.978</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>M8</object-name>
+		<property>orientation/pitch-deg</property>
+                <interpolation>
+                 <entry><ind> -36</ind><dep>-76 </dep></entry>
+                 <entry><ind> 0</ind><dep>  0 </dep></entry>
+                 <entry><ind> 36 </ind><dep> 76 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.365</x1-m>
+			<y1-m>6.377</y1-m>
+			<z1-m>5.059</z1-m>
+			<x2-m>75.379</x2-m>
+			<y2-m>6.428</y2-m>
+			<z2-m>4.978</z2-m>
+		</axis>
+	</animation>
+
+<!-- LSO SIGN LEVER -->
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LSO_sign_lever</object-name>
+		<property>/controls/akizuki/jbd[3]/state</property>
+                <interpolation>
+                 <entry><ind> 0 </ind><dep>  0 </dep></entry>
+                 <entry><ind> 1 </ind><dep>-15 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.670</x1-m>
+			<y1-m>6.266</y1-m>
+			<z1-m>5.148</z1-m>
+			<x2-m>75.591</x2-m>
+			<y2-m>6.059</y2-m>
+			<z2-m>5.148</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LSO_sign_lever</object-name>
+		<property>/controls/akizuki/jbd[1]/state</property>
+                <interpolation>
+                 <entry><ind> 0 </ind><dep>  0 </dep></entry>
+                 <entry><ind> 1 </ind><dep> 15 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.670</x1-m>
+			<y1-m>6.266</y1-m>
+			<z1-m>5.148</z1-m>
+			<x2-m>75.591</x2-m>
+			<y2-m>6.059</y2-m>
+			<z2-m>5.148</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LSO_sign_lever</object-name>
+		<property>/controls/akizuki/jbd[2]/state</property>
+                <interpolation>
+                 <entry><ind> 0 </ind><dep>  0 </dep></entry>
+                 <entry><ind> 1 </ind><dep>-15 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.477</x1-m>
+			<y1-m>6.219</y1-m>
+			<z1-m>5.148</z1-m>
+			<x2-m>75.784</x2-m>
+			<y2-m>6.106</y2-m>
+			<z2-m>5.148</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>LSO_sign_lever</object-name>
+		<property>/controls/akizuki/jbd[4]/state</property>
+                <interpolation>
+                 <entry><ind> 0 </ind><dep>  0 </dep></entry>
+                 <entry><ind> 1 </ind><dep> 15 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.477</x1-m>
+			<y1-m>6.219</y1-m>
+			<z1-m>5.148</z1-m>
+			<x2-m>75.784</x2-m>
+			<y2-m>6.106</y2-m>
+			<z2-m>5.148</z2-m>
+		</axis>
+	</animation>
+
+<!-- TRAVERSE LEVER -->
+
+	<animation>
+		<type>translate</type>
+		<object-name>traverse_lever</object-name>
+		<property>/controls/akizuki/elevator[0]/state</property>
+                <interpolation>
+                 <entry><ind> 1 </ind><dep>  0 </dep></entry>
+                 <entry><ind> 0 </ind><dep> 0.12 </dep></entry>
+                </interpolation>
+		<axis>
+			<x1-m>75.665</x1-m>
+			<y1-m> 5.937</y1-m>
+			<z1-m> 5.070</z1-m>
+			<x2-m>75.437</x2-m>
+			<y2-m> 6.020</y2-m>
+			<z2-m> 5.070</z2-m>
+		</axis>
+	</animation>
+
+
+</PropertyList>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+  <PropertyList>
+	  <scenario>
+		<name>akizuki_demo</name>
+		<entry>
+			<type>carrier</type>
+			<name>akizuki</name>
+			<pennant-number>DD-115</pennant-number>
+			<TACAN-channel-ID>033Y</TACAN-channel-ID>
+			<model>Models/Geometry/akizuki/akizuki.xml</model>
+
+			<latitude>35.4478</latitude>
+			<longitude>139.7250</longitude>
+			<heading>170</heading>
+<!--
+			<latitude>34.9</latitude>
+			<longitude>136.750</longitude>
+			<heading>190</heading>
+-->
+			<speed>10</speed>
+			<deck-altitude>50</deck-altitude>
+			<rudder>0</rudder>
+			<turn-radius-ft>7000</turn-radius-ft>
+
+			<flols-pos>
+                                <x-offset-m>86.00</x-offset-m>
+                                <y-offset-m>-1.0</y-offset-m>
+                                <z-offset-m>5.0</z-offset-m>
+			</flols-pos>
+
+
+			<parking-pos>
+				<name>P1</name>
+				<heading-offset-deg>-5</heading-offset-deg>
+                                <x-offset-m>86.00</x-offset-m>
+                                <y-offset-m>-1.0</y-offset-m>
+                                <z-offset-m>5.0</z-offset-m>
+			</parking-pos>
+
+
+			<max-lat>0.05</max-lat>
+			<min-lat>0.05</min-lat>
+			<max-long>0.05</max-long>
+			<min-long>0.05</min-long>
+			<mp-control>false</mp-control>
+			<ai-control>true</ai-control>
+
+		</entry>
+
+
+		<entry>
+			<type>escort</type>
+			<model>Models/Geometry/akizuki/SH-60J/H-60.xml</model>
+			<name>WIVERN-1</name>
+			<callsign>WIVERN</callsign>
+			<turn-radius-ft>200</turn-radius-ft>
+			<fixed-turn-radius-ft>200</fixed-turn-radius-ft>
+			<rudder-constant>30</rudder-constant>
+			<speed-constant>5</speed-constant>
+			<max-speed-kts>120</max-speed-kts>
+			<station>
+				<range-nm>0.10</range-nm>
+				<brg-deg>-150</brg-deg>
+				<range-limit-nm>0</range-limit-nm>
+				<height-ft>60</height-ft>
+				<parent>akizuki</parent>
+			</station>
+		</entry>
+
+    </scenario>
+
+  </PropertyList>

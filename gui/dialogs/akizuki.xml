@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<name>akizuki</name>
+	<modal>false</modal>
+	<layout>vbox</layout>
+	<group>
+		<layout>hbox</layout>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<text>
+			<label>JMSDF DD-115 akizuki Controls</label>
+		</text>
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend></legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+
+	<hrule/>
+
+<!-- COURSE CONTROL -->
+
+	<group>
+		<layout>table</layout>
+		<text>
+			<label>Course</label>
+			<row>0</row>
+			<col>0</col>
+			<halign>left</halign>
+		</text>
+		<radio>
+			<row>1</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Turn to launch course</label>
+			<property>/controls/akizuki/turn-to-launch-hdg</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/turn-to-launch-hdg");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+						
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("controls/turn-to-launch-hdg").setBoolValue(v);
+							c.getNode("controls/turn-to-recovery-hdg").setBoolValue(0);
+							c.getNode("controls/turn-to-base-course").setBoolValue(0);
+							}
+						}
+
+						setprop("/controls/akizuki/turn-to-base-course", 0);
+						setprop("/controls/akizuki/turn-to-recovery-hdg", 0);
+				</script>
+			</binding>
+		</radio>
+		<radio>
+			<row>2</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Turn to recovery course</label>
+			<property>/controls/akizuki/turn-to-recovery-hdg</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/turn-to-recovery-hdg");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("controls/turn-to-recovery-hdg").setBoolValue(v);
+							c.getNode("controls/turn-to-launch-hdg").setBoolValue(0);
+							c.getNode("controls/turn-to-base-course").setBoolValue(0);
+							}
+						}
+
+						setprop("/controls/akizuki/turn-to-base-course", 0);
+						setprop("/controls/akizuki/turn-to-launch-hdg", 0);
+				</script>
+			</binding>
+		</radio>
+		<radio>
+			<row>3</row>
+			<col>0</col>
+			<halign>left</halign>
+			<label>Turn to base course</label>
+			<property>/controls/akizuki/turn-to-base-course</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/turn-to-base-course");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("controls/turn-to-base-course").setBoolValue(v);
+							c.getNode("controls/turn-to-recovery-hdg").setBoolValue(0);
+							c.getNode("controls/turn-to-launch-hdg").setBoolValue(0);
+							}
+						}
+
+						setprop("/controls/akizuki/turn-to-launch-hdg", 0);
+						setprop("/controls/akizuki/turn-to-recovery-hdg", 0);
+				</script>
+			</binding>
+		</radio>
+	</group>
+
+		<hrule/>
+
+<!-- RSD CONTROL -->
+
+	<group>
+		<layout>table</layout>
+		<text>
+			<label>RSD Control</label>
+			<row>0</row>
+			<col>0</col>
+			<halign>left</halign>
+		</text>
+		<checkbox>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>
+			<label>L-RSD SET</label>
+			<property>/controls/akizuki/elevator[0]/state</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+	</group>
+
+		<hrule/>
+
+<!-- LSO SIGN CONTROL -->
+
+	<group>
+		<layout>table</layout>
+		<text>
+			<label>LSO Sign Control (look from LSO View)</label>
+			<row>0</row>
+			<col>0</col>
+			<halign>left</halign>
+		</text>
+
+		<checkbox>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>
+			<label>READY LSO</label>
+			<property>/controls/akizuki/elevator[1]/state</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+		<radio>
+			<row>1</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>BACK</label>
+			<property>/controls/akizuki/jbd[3]/state</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/jbd[3]/state");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("/controls/akizuki/jbd[3]/state").setBoolValue(v);
+							c.getNode("/controls/akizuki/jbd[0]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[1]/state").setBoolValue(0);
+							}
+						}
+						setprop("/controls/akizuki/jbd[0]/state", 0);
+						setprop("/controls/akizuki/jbd[1]/state", 0);
+				</script>
+			</binding>
+		</radio>
+		<radio>
+			<row>2</row>
+			<col>0</col>
+			<halign>right</halign>
+			<label>RIGHT</label>
+			<property>/controls/akizuki/jbd[2]/state</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/jbd[2]/state");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("/controls/akizuki/jbd[2]/state").setBoolValue(v);
+							c.getNode("/controls/akizuki/jbd[0]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[4]/state").setBoolValue(0);
+							}
+						}
+						setprop("/controls/akizuki/jbd[0]/state", 0);
+						setprop("/controls/akizuki/jbd[4]/state", 0);
+				</script>
+			</binding>
+		</radio>
+		<radio>
+			<row>2</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>CTR</label>
+			<property>/controls/akizuki/jbd[0]/state</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/jbd[0]/state");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("/controls/akizuki/jbd[0]/state").setBoolValue(v);
+							c.getNode("/controls/akizuki/jbd[1]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[2]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[3]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[4]/state").setBoolValue(0);
+							}
+						}
+						setprop("/controls/akizuki/jbd[1]/state", 0);
+						setprop("/controls/akizuki/jbd[2]/state", 0);
+						setprop("/controls/akizuki/jbd[3]/state", 0);
+						setprop("/controls/akizuki/jbd[4]/state", 0);
+				</script>
+			</binding>
+		</radio>
+		<radio>
+			<row>2</row>
+			<col>2</col>
+			<halign>left</halign>
+			<label>LEFT</label>
+			<property>/controls/akizuki/jbd[4]/state</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/jbd[4]/state");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("/controls/akizuki/jbd[4]/state").setBoolValue(v);
+							c.getNode("/controls/akizuki/jbd[0]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[2]/state").setBoolValue(0);
+							}
+						}
+						setprop("/controls/akizuki/jbd[0]/state", 0);
+						setprop("/controls/akizuki/jbd[2]/state", 0);
+				</script>
+			</binding>
+		</radio>
+		<radio>
+			<row>3</row>
+			<col>1</col>
+			<halign>left</halign>
+			<label>FWD</label>
+			<property>/controls/akizuki/jbd[1]/state</property>
+			<live>true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var v = getprop("/controls/akizuki/jbd[1]/state");
+						foreach (var c; props.globals.getNode("/ai/models").getChildren("carrier")){
+
+						if (c.getNode("name").getValue() == "akizuki")
+							{
+							c.getNode("/controls/akizuki/jbd[1]/state").setBoolValue(v);
+							c.getNode("/controls/akizuki/jbd[0]/state").setBoolValue(0);
+							c.getNode("/controls/akizuki/jbd[3]/state").setBoolValue(0);
+							}
+						}
+						setprop("/controls/akizuki/jbd[0]/state", 0);
+						setprop("/controls/akizuki/jbd[3]/state", 0);
+				</script>
+			</binding>
+		</radio>
+
+
+
+	</group>
+
+	<hrule/>
+
+	<group>
+		<layout>table</layout>
+		<text>
+			<label>Options</label>
+			<row>0</row>
+			<col>0</col>
+		</text>
+
+		<checkbox>
+			<halign>left</halign>
+			<row>1</row>
+			<col>0</col>
+			<label>OLS Enable </label>
+			<property>/controls/akizuki/crew</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<halign>left</halign>
+			<row>1</row>
+			<col>1</col>
+			<label>Deck lights</label>
+			<property>/controls/akizuki/lights</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+
+	</group>
+
+	<empty>
+		<stretch>1</stretch>
+	</empty>
+
+	<hrule/>
+
+	<group>
+		<layout>hbox</layout>
+		<default-padding>6</default-padding>
+		<empty>
+			<stretch>true</stretch>
+		</empty>
+
+		<button>
+			<legend>OK</legend>
+			<default>true</default>
+			<equal>true</equal>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		<button>
+			<legend>Apply</legend>
+			<equal>true</equal>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</button>
+
+		<button>
+			<legend>Reset</legend>
+			<equal>true</equal>
+			<binding>
+				<command>dialog-update</command>
+			</binding>
+		</button>
+
+		<button>
+			<legend>Cancel</legend>
+			<equal>true</equal>
+			<key>Esc</key>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+
+		<empty>
+			<stretch>true</stretch>
+		</empty>
+	</group>
+</PropertyList>

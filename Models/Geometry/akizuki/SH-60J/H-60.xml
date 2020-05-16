@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>H-60.ac</path>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Rotor</object-name>
+		<object-name>Rotor-Shaft</object-name>
+		<property>/sim/time/elapsed-sec</property>
+		<factor>1000</factor>
+		<axis>
+			<x1-m>-0.0264778</x1-m>
+			<y1-m>0.0</y1-m>
+			<z1-m>0.643522</z1-m>
+			<x2-m>-0.0342676</x2-m>
+			<y2-m>0.0</y2-m>
+			<z2-m>0.792255</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>Tail-Rotor</object-name>
+		<property>/sim/time/elapsed-sec</property>
+		<factor>-1500</factor>
+		<!-- 9.89736	0.723054	-0.410085
+		9.89718	0.638745	-0.18482-->
+		<axis>
+			<x1-m>9.89369</x1-m>
+			<y1-m>-0.0193272</y1-m>
+			<z1-m>0.641302</z1-m>
+			<x2-m>9.89369</x2-m>
+			<y2-m>0.125795</y2-m>
+			<z2-m>0.660408</z2-m>
+		</axis>
+	</animation>
+
+
+<!-- LIGHTING -->
+
+<!--MAST LIGHT-->
+
+ <model>
+    <name>MAST-FR</name>
+    <path>Models/Geometry/akizuki/light/Landinglight.xml</path>
+    <offsets>
+      <x-m>-4.117 </x-m>
+      <y-m> -0.000 </y-m>
+      <z-m> -2.300 </z-m>
+      <roll-deg>  0 </roll-deg>
+      <pitch-deg>-80 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+
+
+<!--WHITE -->
+
+ <model>
+    <name>CONE-W1</name>
+    <path>Models/Geometry/akizuki/light/light-cone_white.xml</path>
+    <offsets>
+      <x-m>9.540 </x-m>
+      <y-m> -0.000 </y-m>
+      <z-m> 0.306 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg> -90 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- ANTICOLLISION -->
+
+ <model>
+    <name>ANTICOLLISION1</name>
+    <path>Models/Geometry/akizuki/light/anticollision_beacon.xml</path>
+    <offsets>
+      <x-m> 9.852 </x-m>
+      <y-m> -0.103 </y-m>
+      <z-m> 0.847 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- NAV -->
+
+ <model>
+    <name>NAV-RED</name>
+    <path>Models/Geometry/akizuki/light/RedLight.xml</path>
+    <offsets>
+      <x-m>-2.308 </x-m>
+      <y-m>-1.337 </y-m>
+      <z-m>-2.225 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+ <model>
+    <name>NAV-GREEN</name>
+    <path>Models/Geometry/akizuki/light/GreenLight.xml</path>
+    <offsets>
+      <x-m>-2.308 </x-m>
+      <y-m> 1.337 </y-m>
+      <z-m>-2.225 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+
+</PropertyList>

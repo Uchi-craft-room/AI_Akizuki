@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+  akizuki -set file for FlightGear.
+ writen by Hitoshi uchida
+
+ base programu by
+  Copyright (C) 2007 - 2010  Anders Gidenstam  (anders(at)gidenstam.org)
+  This file is released under the GPL license version 2 or later.
+-->
+<PropertyList include="common.xml">
+
+	<sim include="Systems/akizuki-views.xml">
+
+		<description>Multiplayer akizuki - Other pilots can land on it.</description>
+		<long-description>Ver.1.0</long-description>
+		<author>Hitoshi Uchida 'HiTouch'(3D/FDM)</author>
+
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/akizuki-splash.png</path>
+			</preview>
+		</previews>
+
+		<flight-model>null</flight-model>
+
+		<presets>
+			<onground>true</onground>
+		</presets>
+
+		<startup>
+			<splash-texture>Aircraft/MPCarrier/akizuki-splash.png</splash-texture>
+		</startup>
+
+		<sound>
+			<audible>true</audible>
+			<path/>
+		</sound>
+
+		<model>
+			<path>Aircraft/MPCarrier/Models/mp-akizuki.xml</path>
+		</model>
+
+		<systems>
+
+			<electrical>
+				<path/>
+			</electrical>
+
+			<static>
+			</static>
+
+		</systems>
+
+		<instrumentation>
+			<path/>
+		</instrumentation>
+
+		<hud>
+			<path n="1">Aircraft/MPCarrier/Systems/LSO.xml</path>
+			<visibility n="1">true</visibility>
+			<font>
+				<size type="float">10.0</size>
+			</font>
+		</hud>
+
+		<!-- This aircraft is pointless without the akizuki_demo scenario. -->
+		<ai>
+			<enabled type="bool">true</enabled>
+			<scenario n="100">akizuki_demo</scenario>
+		</ai>
+
+		<mp-carriers>
+			<akizuki-callsign type="string"></akizuki-callsign>
+		</mp-carriers>
+	</sim>
+
+	<controls>
+		<rudder-pos-deg type="float"> 0.0 </rudder-pos-deg>
+		<speed-kts type="float"> 0.0 </speed-kts>
+	</controls>
+
+	<surface-positions>
+		<!-- These will be (ab)used for transmitting rudder-deg and speed-kts. -->
+		<rudder-pos-norm type="float"> 0.0 </rudder-pos-norm>
+		<flap-pos-norm type="float"> 0.0 </flap-pos-norm>
+	</surface-positions>
+
+
+	<nasal>
+		<!-- Nasal Carrier View -->
+		<CarrierControl>
+			<file>Aircraft/MPCarrier/Systems/commander.nas</file>
+			<script>
+				var carrier_name = "akizuki";
+			</script>
+		</CarrierControl>
+		<approachview>
+			<file>Aircraft/MPCarrier/Systems/approachview.nas</file>
+		</approachview>
+		<lsoview>
+			<file>Aircraft/MPCarrier/Systems/lsoview.nas</file>
+		</lsoview>
+		<Radar>
+			<file>Aircraft/MPCarrier/Panels/MP-radar.nas</file>
+		</Radar>
+		<LSOComms>
+			<file>Aircraft/MPCarrier/Systems/lsocomms.nas</file>
+		</LSOComms>
+		<walkview>
+			<file>Aircraft/Generic/WalkView/walkview.nas</file>
+		</walkview>
+		<walkviews>
+			<file>Aircraft/MPCarrier/Systems/akizuki-walk-views.nas</file>
+		</walkviews>
+	</nasal>
+
+</PropertyList>

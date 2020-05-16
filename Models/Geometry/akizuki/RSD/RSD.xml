@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>RSD.ac</path>
+
+	<animation>
+		<enable-hot type="bool">false</enable-hot>
+		<object-name>RSD</object-name>
+		<object-name>RSD_catch</object-name>
+	</animation>
+<!--
+	<animation>
+		<type>interaction</type>
+		<interaction-type>carrier-wire</interaction-type>
+		<object-name>RSD_area</object-name>
+	</animation>
+
+	<animation>
+		<type>noshadow</type>
+		<object-name>RSD_area</object-name>
+	</animation>
+-->
+
+
+</PropertyList>
+
